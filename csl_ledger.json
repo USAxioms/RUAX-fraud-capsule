@@ -1,0 +1,141 @@
+[
+  {
+    "H_i": "d777d3eadbc62e218c778e900072677e75406d8660c5385786eddb8d53599800",
+    "H_prev": "0000000000000000000000000000000000000000000000000000000000000000",
+    "S_i": {
+      "_label": "GENESIS",
+      "arithmetic": "WAD-18 exact integer",
+      "capsule": "fraud-capsule",
+      "n_accounts": 3,
+      "version": "1.0.0"
+    },
+    "T_i": "2026-11-03T02:01:19.402759+00:00",
+    "i": 0
+  },
+  {
+    "H_i": "cd09d182a6397d2f0005bdecbe96a0a579d5ff86bd8c1932659d0132bdf1acb7",
+    "H_prev": "d777d3eadbc62e218c778e900072677e75406d8660c5385786eddb8d53599800",
+    "S_i": {
+      "_label": "normal",
+      "decision": "ALLOW",
+      "pass": true,
+      "rules": [],
+      "score": "0.000000",
+      "txn_id": "T001"
+    },
+    "T_i": "2026-11-03T02:01:19.402944+00:00",
+    "i": 1
+  },
+  {
+    "H_i": "f75a7f06b593a4d86c19f8fa25213cc3c2ca68df12a971c54aa637c366f2f05d",
+    "H_prev": "cd09d182a6397d2f0005bdecbe96a0a579d5ff86bd8c1932659d0132bdf1acb7",
+    "S_i": {
+      "_label": "outlier_geo",
+      "decision": "REVIEW",
+      "pass": true,
+      "rules": [
+        "GEO",
+        "OUTLIER"
+      ],
+      "score": "0.450000",
+      "txn_id": "T002"
+    },
+    "T_i": "2026-11-03T02:01:19.403355+00:00",
+    "i": 2
+  },
+  {
+    "H_i": "ca69cbdb3f83f8d96049ac666a0faf82f94e76fea05b40d74d1c5a85a9a7562b",
+    "H_prev": "f75a7f06b593a4d86c19f8fa25213cc3c2ca68df12a971c54aa637c366f2f05d",
+    "S_i": {
+      "_label": "structuring_block",
+      "decision": "BLOCK",
+      "pass": true,
+      "rules": [
+        "GEO",
+        "OUTLIER",
+        "STRUCTURING"
+      ],
+      "score": "0.750000",
+      "txn_id": "T003"
+    },
+    "T_i": "2026-11-03T02:01:19.404918+00:00",
+    "i": 3
+  },
+  {
+    "H_i": "ffc212d73e346cdd135eb29042bd9566b3d9997d843198301ccdf43bb1cb6aec",
+    "H_prev": "ca69cbdb3f83f8d96049ac666a0faf82f94e76fea05b40d74d1c5a85a9a7562b",
+    "S_i": {
+      "_label": "blocklisted",
+      "decision": "BLOCK",
+      "pass": true,
+      "rules": [
+        "BLOCKLIST"
+      ],
+      "score": "1.000000",
+      "txn_id": "T004"
+    },
+    "T_i": "2026-11-03T02:01:19.405620+00:00",
+    "i": 4
+  },
+  {
+    "H_i": "f9c4bcb1aa01c16053abcabe9a8dc019b38c8e022501a4a1586196dded3be0d2",
+    "H_prev": "ffc212d73e346cdd135eb29042bd9566b3d9997d843198301ccdf43bb1cb6aec",
+    "S_i": {
+      "_label": "new_account_only",
+      "decision": "ALLOW",
+      "pass": true,
+      "rules": [
+        "NEW_ACCOUNT"
+      ],
+      "score": "0.150000",
+      "txn_id": "T005"
+    },
+    "T_i": "2026-11-03T02:01:19.406143+00:00",
+    "i": 5
+  },
+  {
+    "H_i": "2a35842fcd4172f05845077265e7537699cb112defcfa77bee533071bfdef95b",
+    "H_prev": "f9c4bcb1aa01c16053abcabe9a8dc019b38c8e022501a4a1586196dded3be0d2",
+    "S_i": {
+      "_label": "new_account_shared_device",
+      "decision": "REVIEW",
+      "pass": true,
+      "rules": [
+        "DEVICE",
+        "NEW_ACCOUNT"
+      ],
+      "score": "0.350000",
+      "txn_id": "T006"
+    },
+    "T_i": "2026-11-03T02:01:19.406619+00:00",
+    "i": 6
+  },
+  {
+    "H_i": "5a974904901618df79fb3113f3335b78499efd1be7e14f6b425d91bf68a0d288",
+    "H_prev": "2a35842fcd4172f05845077265e7537699cb112defcfa77bee533071bfdef95b",
+    "S_i": {
+      "_label": "velocity_geo",
+      "decision": "REVIEW",
+      "pass": true,
+      "rules": [
+        "GEO",
+        "VELOCITY"
+      ],
+      "score": "0.450000",
+      "txn_id": "T007"
+    },
+    "T_i": "2026-11-03T02:01:19.407064+00:00",
+    "i": 7
+  },
+  {
+    "H_i": "8b41da0a5b71267871a66a048705c88ab02b9fa583761864e0ba1571a94d796f",
+    "H_prev": "5a974904901618df79fb3113f3335b78499efd1be7e14f6b425d91bf68a0d288",
+    "S_i": {
+      "H_final": "5a974904901618df79fb3113f3335b78499efd1be7e14f6b425d91bf68a0d288",
+      "_label": "FINALIZATION",
+      "all_pass": true
+    },
+    "T_i": "2026-11-03T02:01:19.407519+00:00",
+    "i": 8
+  }
+]
