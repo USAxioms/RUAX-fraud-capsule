@@ -1,0 +1,99 @@
+{
+  "all_pass": true,
+  "results": [
+    {
+      "account_id": "A1",
+      "arithmetic": "WAD-18 exact integer throughout",
+      "decision": "ALLOW",
+      "outlier_ratio_wad18": 1200000000000000000,
+      "pass": true,
+      "rules_triggered": [],
+      "score_str": "0.000000",
+      "score_wad18": 0,
+      "txn_id": "T001"
+    },
+    {
+      "account_id": "A1",
+      "arithmetic": "WAD-18 exact integer throughout",
+      "decision": "REVIEW",
+      "outlier_ratio_wad18": 9000000000000000000,
+      "pass": true,
+      "rules_triggered": [
+        "GEO",
+        "OUTLIER"
+      ],
+      "score_str": "0.450000",
+      "score_wad18": 450000000000000000,
+      "txn_id": "T002"
+    },
+    {
+      "account_id": "A1",
+      "arithmetic": "WAD-18 exact integer throughout",
+      "decision": "BLOCK",
+      "outlier_ratio_wad18": 95000000000000000000,
+      "pass": true,
+      "rules_triggered": [
+        "GEO",
+        "OUTLIER",
+        "STRUCTURING"
+      ],
+      "score_str": "0.750000",
+      "score_wad18": 750000000000000000,
+      "txn_id": "T003"
+    },
+    {
+      "account_id": "A1",
+      "arithmetic": "WAD-18 exact integer throughout",
+      "decision": "BLOCK",
+      "outlier_ratio_wad18": 1200000000000000000,
+      "pass": true,
+      "rules_triggered": [
+        "BLOCKLIST"
+      ],
+      "score_str": "1.000000",
+      "score_wad18": 1000000000000000000,
+      "txn_id": "T004"
+    },
+    {
+      "account_id": "A2",
+      "arithmetic": "WAD-18 exact integer throughout",
+      "decision": "ALLOW",
+      "outlier_ratio_wad18": 0,
+      "pass": true,
+      "rules_triggered": [
+        "NEW_ACCOUNT"
+      ],
+      "score_str": "0.150000",
+      "score_wad18": 150000000000000000,
+      "txn_id": "T005"
+    },
+    {
+      "account_id": "A2",
+      "arithmetic": "WAD-18 exact integer throughout",
+      "decision": "REVIEW",
+      "outlier_ratio_wad18": 0,
+      "pass": true,
+      "rules_triggered": [
+        "DEVICE",
+        "NEW_ACCOUNT"
+      ],
+      "score_str": "0.350000",
+      "score_wad18": 350000000000000000,
+      "txn_id": "T006"
+    },
+    {
+      "account_id": "A3",
+      "arithmetic": "WAD-18 exact integer throughout",
+      "decision": "REVIEW",
+      "outlier_ratio_wad18": 1000000000000000000,
+      "pass": true,
+      "rules_triggered": [
+        "GEO",
+        "VELOCITY"
+      ],
+      "score_str": "0.450000",
+      "score_wad18": 450000000000000000,
+      "txn_id": "T007"
+    }
+  ]
+}
