@@ -1,0 +1,32 @@
+{
+  "method": "extensional_equivalence_proofs",
+  "standard": "CVM-1.0",
+  "scope": "Mutation targets: src/transaction.py, src/fraud_engine.py. wad18.py and csl.py are shared dependencies validated in their own capsules and excluded from this run.",
+  "equivalences": [
+    {
+      "id": "EQ-FR-01",
+      "file": "src/transaction.py",
+      "line": 3,
+      "mutant": "sys.path.insert(1, ...)",
+      "proof": "src/ is already importable when tests run; insertion index 0 vs 1 resolves the same modules (no duplicate module names on the path)."
+    },
+    {
+      "id": "EQ-FR-02",
+      "file": "src/fraud_engine.py",
+      "line": 9,
+      "mutant": "sys.path.insert(1, ...)",
+      "proof": "Same as EQ-FR-01."
+    },
+    {
+      "id": "EQ-FR-03",
+      "file": "src/fraud_engine.py",
+      "line": 82,
+      "mutant": "total == 1",
+      "proof": "The guard follows `n < MIN_HISTORY_FOR_OUTLIER or ...`, so it is evaluated only when n >= 3. Transaction enforces amount_cents >= 1, so total >= 3. Both `total == 0` and `total == 1` are therefore always False when reached; the guard is unreachable and the mutation is unobservable."
+    }
+  ],
+  "summary": {
+    "mutants_covered": 3,
+    "coverage_gaps_reclassified": 0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "blocklist": ["CP-BAD"],
+  "device_accounts": {"DEV-SHARED": ["A2", "X1", "X2", "X3"]},
+  "accounts": [
+    {"account_id": "A1", "age_days": 400, "home_countries": ["US"],
+     "history": [
+       {"amount_cents": 10000, "timestamp_s": 1729913600},
+       {"amount_cents": 10000, "timestamp_s": 1729827200},
+       {"amount_cents": 10000, "timestamp_s": 1729740800},
+       {"amount_cents": 10000, "timestamp_s": 1729654400}]},
+    {"account_id": "A2", "age_days": 10, "home_countries": ["US"], "history": []},
+    {"account_id": "A3", "age_days": 200, "home_countries": ["US"],
+     "history": [
+       {"amount_cents": 5000, "timestamp_s": 1729999400},
+       {"amount_cents": 5000, "timestamp_s": 1729998800},
+       {"amount_cents": 5000, "timestamp_s": 1729998200},
+       {"amount_cents": 5000, "timestamp_s": 1729997600},
+       {"amount_cents": 5000, "timestamp_s": 1729997000}]}
+  ],
+  "transactions": [
+    {"label": "normal", "txn_id": "T001", "account_id": "A1", "amount_cents": 12000, "counterparty_id": "CP-OK", "timestamp_s": 1730000000, "country": "US", "device_id": "DEV-A1", "expected_decision": "ALLOW", "expected_rules": []},
+    {"label": "outlier_geo", "txn_id": "T002", "account_id": "A1", "amount_cents": 90000, "counterparty_id": "CP-OK", "timestamp_s": 1730000000, "country": "RU", "device_id": "DEV-A1", "expected_decision": "REVIEW", "expected_rules": ["GEO", "OUTLIER"]},
+    {"label": "structuring_block", "txn_id": "T003", "account_id": "A1", "amount_cents": 950000, "counterparty_id": "CP-OK", "timestamp_s": 1730000000, "country": "NG", "device_id": "DEV-A1", "expected_decision": "BLOCK", "expected_rules": ["GEO", "OUTLIER", "STRUCTURING"]},
+    {"label": "blocklisted", "txn_id": "T004", "account_id": "A1", "amount_cents": 12000, "counterparty_id": "CP-BAD", "timestamp_s": 1730000000, "country": "US", "device_id": "DEV-A1", "expected_decision": "BLOCK", "expected_rules": ["BLOCKLIST"]},
+    {"label": "new_account_only", "txn_id": "T005", "account_id": "A2", "amount_cents": 600000, "counterparty_id": "CP-OK", "timestamp_s": 1730000000, "country": "US", "device_id": "DEV-A2", "expected_decision": "ALLOW", "expected_rules": ["NEW_ACCOUNT"]},
+    {"label": "new_account_shared_device", "txn_id": "T006", "account_id": "A2", "amount_cents": 600000, "counterparty_id": "CP-OK", "timestamp_s": 1730000000, "country": "US", "device_id": "DEV-SHARED", "expected_decision": "REVIEW", "expected_rules": ["DEVICE", "NEW_ACCOUNT"]},
+    {"label": "velocity_geo", "txn_id": "T007", "account_id": "A3", "amount_cents": 5000, "counterparty_id": "CP-OK", "timestamp_s": 1730000000, "country": "GB", "device_id": "DEV-A3", "expected_decision": "REVIEW", "expected_rules": ["GEO", "VELOCITY"]}
+  ]
+}
